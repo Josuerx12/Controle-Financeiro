@@ -157,19 +157,20 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredEntradas.map((entrada, i) => (
-              <tr key={i}>
-                <td>{entrada.tipo}</td>
-                <td>{entrada.desc}</td>
-                <td>{entrada.data}</td>
-                <td>R$ {entrada.valor}</td>
-                <td className="del">
-                  <Button onClick={() => deleteEntrada(i)} variant="danger">
-                    Del
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            {entradas === [] &&
+              filteredEntradas.map((entrada, i) => (
+                <tr key={i}>
+                  <td>{entrada.tipo}</td>
+                  <td>{entrada.desc}</td>
+                  <td>{entrada.data}</td>
+                  <td>R$ {entrada.valor}</td>
+                  <td className="del">
+                    <Button onClick={() => deleteEntrada(i)} variant="danger">
+                      Del
+                    </Button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>
@@ -246,19 +247,20 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredDespesas.map((despesa, i) => (
-              <tr key={i}>
-                <td>{despesa.tipo}</td>
-                <td>{despesa.desc}</td>
-                <td>{despesa.data}</td>
-                <td>R$ {despesa.valor}</td>
-                <td className="del">
-                  <Button variant="danger" onClick={() => deleteDespesa(i)}>
-                    Del
-                  </Button>
-                </td>
-              </tr>
-            ))}
+            {despesas === [] &&
+              filteredDespesas.map((despesa, i) => (
+                <tr key={i}>
+                  <td>{despesa.tipo}</td>
+                  <td>{despesa.desc}</td>
+                  <td>{despesa.data}</td>
+                  <td>R$ {despesa.valor}</td>
+                  <td className="del">
+                    <Button variant="danger" onClick={() => deleteDespesa(i)}>
+                      Del
+                    </Button>
+                  </td>
+                </tr>
+              ))}
           </tbody>
         </Table>
       </div>
