@@ -165,7 +165,7 @@ const ConsultarDespesas = () => {
                   <td>{entrada.data}</td>
                   <td>R$ {entrada.valor}</td>
                   <td className="del">
-                    <Button onClick={deleteEntrada} variant="danger">
+                    <Button onClick={() => deleteEntrada(i)} variant="danger">
                       Del
                     </Button>
                   </td>
@@ -255,7 +255,7 @@ const ConsultarDespesas = () => {
                   <td>{despesa.data}</td>
                   <td>R$ {despesa.valor}</td>
                   <td className="del">
-                    <Button variant="danger" onClick={deleteDespesa}>
+                    <Button variant="danger" onClick={() => deleteDespesa(i)}>
                       Del
                     </Button>
                   </td>

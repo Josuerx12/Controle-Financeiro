@@ -58,7 +58,12 @@ const CriarDespesa = () => {
     setDescEntrada("");
     setValorEntrada("");
 
-    window.alert("Entrada cadastrada com sucesso!!!");
+    return (
+      <Alert variant="success" show={true}>
+        <Alert.Heading>Controle Financeiro</Alert.Heading>
+        <p>Entrada cadastrada com sucesso!!</p>
+      </Alert>
+    );
   };
 
   //envio dos dados de despesas para o banco de dados
@@ -82,7 +87,12 @@ const CriarDespesa = () => {
     setDataDespesa("");
     setTipoDespesa("");
     setValorDespesa("");
-    alert("Despesa cadastrada com sucesso!!!");
+    return (
+      <Alert variant="success" show={true}>
+        <Alert.Heading>Controle Financeiro</Alert.Heading>
+        <p>Despesa cadastrada com sucesso!!</p>
+      </Alert>
+    );
   };
 
   return (
