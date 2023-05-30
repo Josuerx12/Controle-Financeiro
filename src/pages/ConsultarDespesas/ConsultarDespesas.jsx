@@ -157,7 +157,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {entradas === [] &&
+            {entradas &&
               filteredEntradas.map((entrada, i) => (
                 <tr key={i}>
                   <td>{entrada.tipo}</td>
@@ -247,7 +247,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {despesas === [] &&
+            {despesas &&
               filteredDespesas.map((despesa, i) => (
                 <tr key={i}>
                   <td>{despesa.tipo}</td>
