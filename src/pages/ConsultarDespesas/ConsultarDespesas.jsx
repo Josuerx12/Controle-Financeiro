@@ -73,13 +73,13 @@ const ConsultarDespesas = () => {
     );
 
   const deleteEntrada = (i) => {
-    const copiaEntradas = [...filteredDespesas];
+    const copiaEntradas = [...entradas];
     copiaEntradas.splice(i, 1);
     setEntradas(copiaEntradas);
     localStorage.setItem("Entrada", JSON.stringify(copiaEntradas));
   };
   const deleteDespesa = (i) => {
-    const copiaDespesas = [...filteredDespesas];
+    const copiaDespesas = [...despesas];
     copiaDespesas.splice(i, 1);
     setDespesas(copiaDespesas);
     localStorage.setItem("Despesas", JSON.stringify(copiaDespesas));
