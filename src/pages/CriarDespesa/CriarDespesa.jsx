@@ -36,7 +36,6 @@ const CriarDespesa = () => {
   const [valorDespesa, setValorDespesa] = useState("");
 
   //função
-
   //envio dos dados de entrada
   const handleEntradaSubmitData = (e) => {
     e.preventDefault();

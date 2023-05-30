@@ -157,7 +157,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {localStorage.getItem("Entrada") &&
+            {JSON.parse(localStorage.getItem("Entrada")) === [] &&
               filteredEntradas.map((entrada, i) => (
                 <tr key={i}>
                   <td>{entrada.tipo}</td>
@@ -247,7 +247,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {localStorage.getItem("Despesas") &&
+            {JSON.parse(localStorage.getItem("Despesa")) === [] &&
               filteredDespesas.map((despesa, i) => (
                 <tr key={i}>
                   <td>{despesa.tipo}</td>
