@@ -22,12 +22,12 @@ const ConsultarDespesas = () => {
   const [valorDespesa, setValorDespesa] = useState("");
 
   useEffect(() => {
-    const entradasFromLocalStorage = JSON.parse(
-      localStorage.getItem("Entrada")
-    );
-    const despesasFromLocalStorage = JSON.parse(
-      localStorage.getItem("Despesas")
-    );
+    const entradasFromLocalStorage =
+      JSON.parse(localStorage.getItem("Entrada")) ||
+      localStorage.setItem("Entrada", []);
+    const despesasFromLocalStorage =
+      JSON.parse(localStorage.getItem("Despesas")) ||
+      localStorage.setItem("Despesas", []);
     setEntradas(entradasFromLocalStorage);
     setDespesas(despesasFromLocalStorage);
   }, []);
