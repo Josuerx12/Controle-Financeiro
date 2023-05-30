@@ -22,12 +22,12 @@ const ConsultarDespesas = () => {
   const [valorDespesa, setValorDespesa] = useState("");
 
   useEffect(() => {
-    const entradasFromLocalStorage =
-      JSON.parse(localStorage.getItem("Entrada")) ||
-      localStorage.setItem("Entrada", []);
-    const despesasFromLocalStorage =
-      JSON.parse(localStorage.getItem("Despesas")) ||
-      localStorage.setItem("Despesas", []);
+    const entradasFromLocalStorage = JSON.parse(
+      localStorage.getItem("Entrada")
+    );
+    const despesasFromLocalStorage = JSON.parse(
+      localStorage.getItem("Despesas")
+    );
     setEntradas(entradasFromLocalStorage);
     setDespesas(despesasFromLocalStorage);
   }, []);
@@ -157,7 +157,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {JSON.parse(localStorage.getItem("Entrada")) === [] &&
+            {filteredEntradas.length === 0 &&
               filteredEntradas.map((entrada, i) => (
                 <tr key={i}>
                   <td>{entrada.tipo}</td>
@@ -247,7 +247,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {JSON.parse(localStorage.getItem("Despesa")) === [] &&
+            {filteredDespesas.length === 0 &&
               filteredDespesas.map((despesa, i) => (
                 <tr key={i}>
                   <td>{despesa.tipo}</td>
