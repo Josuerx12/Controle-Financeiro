@@ -7,8 +7,14 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Form from "react-bootstrap/Form";
 const ConsultarDespesas = () => {
-  const [entradas, setEntradas] = useState([]);
-  const [despesas, setDespesas] = useState([]);
+  const [entradas, setEntradas] = useState(
+    JSON.parse(localStorage.getItem("Entrada")) ||
+      localStorage.setItem("Entrada", JSON.stringify([]))
+  );
+  const [despesas, setDespesas] = useState(
+    JSON.parse(localStorage.getItem("Despesas")) ||
+      localStorage.setItem("Despesas", JSON.stringify([]))
+  );
 
   //Filtro de entradas
   const [descEntrada, setDescEntrada] = useState("");
@@ -34,42 +40,39 @@ const ConsultarDespesas = () => {
   const filteredEntradas = entradas
     .filter(
       (f) =>
-        !descEntrada ||
-        f.desc.toLowerCase().includes(descEntrada.toLocaleLowerCase())
+        !descEntrada || f.desc.toLowerCase().includes(descEntrada.toLowerCase())
     )
     .filter(
       (f) =>
-        !tipoEntrada ||
-        f.tipo.toLocaleLowerCase().includes(tipoEntrada.toLowerCase())
+        !tipoEntrada || f.tipo.toLowerCase().includes(tipoEntrada.toLowerCase())
     )
     .filter(
       (f) =>
-        !dataEntrada ||
-        f.data.toLocaleLowerCase().includes(dataEntrada.toLocaleLowerCase())
+        !dataEntrada || f.data.toLowerCase().includes(dataEntrada.toLowerCase())
     )
     .filter(
       (f) =>
         !valorEntrada ||
-        f.valor.toLocaleLowerCase().includes(valorEntrada.toLocaleLowerCase())
+        f.valor.toLowerCase().includes(valorEntrada.toLowerCase())
     );
+
   const filteredDespesas = despesas
     .filter(
       (f) =>
-        !descDespesa ||
-        f.desc.toLocaleLowerCase().includes(descDespesa.toLowerCase)
+        !descDespesa || f.desc.toLowerCase().includes(descDespesa.toLowerCase())
     )
     .filter(
       (f) =>
-        !tipoDespesa ||
-        f.tipo.toLocaleLowerCase().includes(tipoDespesa.toLocaleLowerCase)
+        !tipoDespesa || f.tipo.toLowerCase().includes(tipoDespesa.toLowerCase())
     )
     .filter(
       (f) =>
-        !dataEntrada ||
-        f.data.toLowerCase().includes(dataDespesa.toLocaleLowerCase)
+        !dataDespesa || f.data.toLowerCase().includes(dataDespesa.toLowerCase())
     )
     .filter(
-      (f) => !valorDespesa || f.valor.toLocaleLowerCase().includes(valorDespesa)
+      (f) =>
+        !valorDespesa ||
+        f.valor.toLowerCase().includes(valorDespesa.toLowerCase())
     );
 
   const deleteEntrada = (i) => {
@@ -157,7 +160,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredEntradas.length === 0 &&
+            {entradas.length >= 0 &&
               filteredEntradas.map((entrada, i) => (
                 <tr key={i}>
                   <td>{entrada.tipo}</td>
@@ -202,7 +205,7 @@ const ConsultarDespesas = () => {
                   <option value="">Selecione uma opção:</option>
                   <option value="Financiamento">Financiamento</option>
                   <option value="Alimentacao">Alimentação</option>
-                  <option value="Contas">luz, Agua, Internet</option>
+                  <option value="Contas">Contas</option>
                   <option value="Lazer">Lazer</option>
                   <option value="outros">Outros</option>
                 </Form.Select>
@@ -247,7 +250,7 @@ const ConsultarDespesas = () => {
             </tr>
           </thead>
           <tbody>
-            {filteredDespesas.length === 0 &&
+            {despesas.length >= 0 &&
               filteredDespesas.map((despesa, i) => (
                 <tr key={i}>
                   <td>{despesa.tipo}</td>

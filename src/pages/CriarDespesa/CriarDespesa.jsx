@@ -17,11 +17,6 @@ class Financa {
 }
 
 const CriarDespesa = () => {
-  // const data = new Date();
-  // const today = data.getDate;
-  // const month = data.getMonth;
-  // const year = data.getFullYear;
-
   const [seletor, setSeletor] = useState("");
   //Entrada states
   const [descEntrada, setDescEntrada] = useState("");
@@ -39,9 +34,9 @@ const CriarDespesa = () => {
   //envio dos dados de entrada
   const handleEntradaSubmitData = (e) => {
     e.preventDefault();
-    const entradaLocalData = JSON.parse(
-      localStorage.getItem("Entrada") || "[]"
-    );
+    const entradaLocalData =
+      JSON.parse(localStorage.getItem("Entrada") || "[]") ||
+      localStorage.setItem("Entrada", JSON.stringify([]));
     const novaEntrada = new Financa(
       descEntrada,
       tipoEntrada,
@@ -200,10 +195,10 @@ const CriarDespesa = () => {
                 value={tipoDespesa}
               >
                 <option value="">Selecione uma opção:</option>
-                <option value="financiamento">Financiamento</option>
-                <option value="alimentacao">Alimentação</option>
-                <option value="contas">luz, Agua, Internet</option>
-                <option value="lazer">Lazer</option>
+                <option value="Financiamento">Financiamento</option>
+                <option value="Alimentacao">Alimentação</option>
+                <option value="Contas">Contas</option>
+                <option value="Lazer">Lazer</option>
                 <option value="outros">Outros</option>
               </Form.Select>
             </Form.Group>
