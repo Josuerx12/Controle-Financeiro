@@ -129,10 +129,10 @@ const CriarDespesa = () => {
                 value={tipoEntrada}
               >
                 <option value="">Selecione uma opção:</option>
-                <option value="salario">Salário</option>
-                <option value="valealimentacao">Vale-Alimentação</option>
-                <option value="valerefeicao">Vale-Refeição</option>
-                <option value="valeatransporte">Vale-Transporte</option>
+                <option value="Salario">Salário</option>
+                <option value="Vale-alimentacao">Vale-Alimentação</option>
+                <option value="Vale-refeicao">Vale-Refeição</option>
+                <option value="Vale-transporte">Vale-Transporte</option>
                 <option value="outros">Outros</option>
               </Form.Select>
             </Form.Group>
